@@ -24,11 +24,11 @@
             <form name="formProduto" method="POST" action="">
                 <div class="linha">
                     <p>Nome:</p>
-                    <input name="txtnome" type="text">
+                    <input name="txtnome" type="text" maxlength="40" placeholder="Nome do Produto">
                 </div>
                 <div class="linha">
                     <p>Estoque:</p>
-                    <input name="txtestoq" type="text">
+                    <input name="txtestoq" type="number" max="999999999" maxlength="9" placeholder="0">
                 </div>
                 <div class="linha"><button name="enviar" type="submit" class="button-outline">Cadastrar</button>
                     <button name="limpar" type="reset" class="button-outline">Limpar</button>

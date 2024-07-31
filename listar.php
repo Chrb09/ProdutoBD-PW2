@@ -61,32 +61,6 @@
                 ?>
             </table>
             <button class="button-cor" onclick="location.href='menu.php'">Voltar</button>
-            <!--<form name="form" method="POST" action="">
-
-                <button name="au" type="submit">bruh</button>
-
-
-            </form>
-            <?php
-            extract($_POST, EXTR_OVERWRITE);
-            if (isset($au)) {
-                echo '
-<script type="text/javascript">
-
-$(document).ready(function(){
-
-  Swal.fire({
-    title: "Enviado com sucesso",
-        icon: "success",
-        confirmButtonColor: "#574dbd",
-  })
-});
-
-</script>
-';
-            }
-            ?>
-            -->
         </div>
     </main>
 </body>
