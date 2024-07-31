@@ -19,18 +19,22 @@ textarea {
   margin: 0;
   padding: 0;
   border: none;
+  background-color: inherit;
 }
 
 body {
   color: #202020;
   background-color: #f0f4f4;
   padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-button {
+.button-cor {
   background-color: #574dbd;
   color: #ffffff;
   font-weight: 600;
-  padding: 0.7em 1.2em;
+  padding: 0.5em 0.9em;
   margin: 0.15rem;
   border-radius: 0.7em;
   cursor: pointer;
@@ -39,51 +43,110 @@ button {
     background-color: #403898;
   }
 }
+
+.button-outline {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #494949;
+  color: #494949;
+  font-weight: 600;
+  padding: 0.3em 0.7em;
+  border-radius: 0.7em;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    color: #ffff;
+    background-color: #494949;
+    border-color: #494949;
+  }
+}
 header,
 main {
   background-color: white;
   margin-inline: 5vw;
   padding-inline: 2rem;
-  padding-block: 0.75rem;
+  padding-block: 1rem;
   border-radius: 1rem;
+  width: 65%;
+}
+h2 {
+  color: #574dbd;
 }
 main {
   margin-top: 1.5rem;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-img {
-  width: 40rem;
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  gap: 1.5rem;
+}
+.img-index {
+  width: 20rem;
 }
 h1 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
-a {
-  font-weight: 600;
+h4 {
+  color: #f0415e;
+}
+.nav-list {
+  display: flex;
+  list-style: none;
+  height: 100%;
+  gap: 1.5rem;
+}
+input {
+  border: #574dbd 2px solid;
+  padding-block: 0.1em;
+  padding-inline: 0.2em;
+  border-radius: 0.5rem;
+  width: 10rem;
+}
+.button-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
   color: #574dbd;
+  font-size: 1.1em;
+  cursor: pointer;
   transition: color 0.3s;
   &:hover {
     color: #312b70;
   }
 }
-ul {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  height: 100%;
+.button-nav img {
+  margin-block: 0.5rem;
+  height: 3.5rem;
+  width: 3.5rem;
 }
-li {
+form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 1rem;
 }
-li img {
-  margin-block: 0.5rem;
-  height: 4rem;
-  width: 4rem;
+.linha {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
 }
-
 th,
 td {
   padding-inline: 1rem;

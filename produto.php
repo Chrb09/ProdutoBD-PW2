@@ -42,12 +42,26 @@ class Produto
         $this->estoque = $iestoque;
     }
     // parte 3 - métodos
-
+    function salvar()
+    {
+        try {
+            $this->conn = new Conectar();
+            $sql = $this->conn->prepare("insert into produto values (null,?,?)");
+            @$sql->bindParam(1, $this->getNome(), PDO::PARAM_STR);
+            @$sql->bindParam(2, $this->getEstoque(), PDO::PARAM_STR);
+            if ($sql->execute() == 1) {
+                return "Registo salvo com sucesso!";
+            }
+            $this->conn = null;
+        } catch (PDOException $exc) {
+            return "Erro ao salvar o registro. <h4>" . $exc->getMessage() . "</h4>";
+        }
+    }
     function listar()
     {
         try {
             $this->conn = new Conectar();
-            $sql = $this->conn->query("select * from produto order by nome");
+            $sql = $this->conn->query("select * from produto order by id");
             $sql->execute();
             return $sql->fetchAll();
             $this->conn = null;
