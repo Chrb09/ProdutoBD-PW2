@@ -6,9 +6,6 @@
     <link rel="icon" href="img/icon.png" />
     <link rel="stylesheet" href="css/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <title>Cadastrar</title>
 </head>
 
@@ -24,11 +21,12 @@
             <form name="formProduto" method="POST" action="">
                 <div class="linha">
                     <p>Nome:</p>
-                    <input name="txtnome" type="text" maxlength="40" placeholder="Nome do Produto">
+                    <input name="txtnome" type="text" maxlength="50" placeholder="Nome do produto..." required
+                        autocomplete="off">
                 </div>
                 <div class="linha">
                     <p>Estoque:</p>
-                    <input name="txtestoq" type="number" max="999999999" maxlength="9" placeholder="0">
+                    <input name="txtestoq" type="number" maxlength="11" placeholder="1" required autocomplete="off">
                 </div>
                 <div class="linha"><button name="enviar" type="submit" class="button-outline">Cadastrar</button>
                     <button name="limpar" type="reset" class="button-outline">Limpar</button>
