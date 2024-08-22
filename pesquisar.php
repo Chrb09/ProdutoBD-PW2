@@ -41,11 +41,53 @@
             if (isset($enviar)) {
                 include_once 'produto.php';
                 $pro = new Produto();
-                $pro->setNome($txtnome);
-                $pro->setEstoque($txtestoq);
-                echo "<h2>" . $pro->salvar() . "</h2>";
+                switch ($escolha) {
+                    case 'Id':
+                        $pro->setId($txtpesquisar);
+                        break;
+                    case 'Nome':
+                        $pro->setNome($txtpesquisar);
+                        break;
+                    case 'Estoque':
+                        $pro->setEstoque($txtpesquisar);
+                        break;
+                }
+                $prod_bd = $pro->consultar($escolha);
             }
             ?>
+            <table>
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        Nome
+                    </th>
+                    <th>
+                        Estoque
+                    </th>
+                </tr>
+                <?php
+                foreach ($prod_bd as $prod_mostrar) {
+                    ?>
+                    <tr>
+                        <td>
+                            <b>
+                                <?php echo $prod_mostrar[0]; ?>
+                            </b>
+                        </td>
+                        <td>
+                            <?php echo $prod_mostrar[1]; ?>
+                        </td>
+                        <td>
+                            <?php echo $prod_mostrar[2]; ?>
+                        </td>
+                    </tr>
+                    <?php
+
+                }
+                ?>
+            </table>
             <button class="button-cor" onclick="location.href='menu.php'">Voltar</button>
         </div>
     </main>

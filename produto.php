@@ -69,6 +69,34 @@ class Produto
             echo "Erro ao executar consulta. " . $exc->getMessage();
         }
     }
+
+    function consultar($iescolha)
+    {
+        try {
+            $this->conn = new Conectar();
+            switch ($iescolha) {
+                case 'Id':
+                    $sql = $this->conn->prepare("select * from produto where id like ?");
+                    @$sql->bindParam(1, $this->getId(), PDO::PARAM_STR);
+                    break;
+                case 'Nome':
+                    $sql = $this->conn->prepare("select * from produto where nome like ?");
+                    @$sql->bindParam(1, $this->getNome(), PDO::PARAM_STR);
+                    break;
+                case 'Estoque':
+                    $sql = $this->conn->prepare("select * from produto where estoque like ?");
+                    @$sql->bindParam(1, $this->getEstoque(), PDO::PARAM_STR);
+                    break;
+            }
+
+
+            $sql->execute();
+            return $sql->fetchAll();
+            $this->conn = null;
+        } catch (PDOException $exc) {
+            echo "Erro ao executar consulta. " . $exc->getMessage();
+        }
+    }
 } // encerramento de classe Produto
 
 ?>

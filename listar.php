@@ -20,7 +20,7 @@
             <?php
             include_once 'produto.php';
             $a = new Produto();
-            $liv_bd = $a->listar();
+            $prod_bd = $a->listar();
             ?>
 
             <h2>Listar</h2>
@@ -37,19 +37,19 @@
                     </th>
                 </tr>
                 <?php
-                foreach ($liv_bd as $liv_mostrar) {
+                foreach ($prod_bd as $prod_mostrar) {
                     ?>
                     <tr>
                         <td>
                             <b>
-                                <?php echo $liv_mostrar[0]; ?>
+                                <?php echo $prod_mostrar[0]; ?>
                             </b>
                         </td>
                         <td>
-                            <?php echo $liv_mostrar[1]; ?>
+                            <?php echo $prod_mostrar[1]; ?>
                         </td>
                         <td>
-                            <?php echo $liv_mostrar[2]; ?>
+                            <?php echo $prod_mostrar[2]; ?>
                         </td>
                     </tr>
                     <?php
