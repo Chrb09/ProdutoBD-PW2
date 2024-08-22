@@ -11,7 +11,7 @@
 
 <body>
   <?php
-  include ("components/navbar.php")
+  include("components/navbar.php")
     ?>
   <main>
     <div class="content">
