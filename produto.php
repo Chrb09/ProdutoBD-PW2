@@ -80,12 +80,16 @@ class Produto
                     @$sql->bindParam(1, $this->getId(), PDO::PARAM_STR);
                     break;
                 case 'Nome':
+                    $name = $this->getNome();
+                    $name = '%' . $name . '%';
                     $sql = $this->conn->prepare("select * from produto where nome like ?");
-                    @$sql->bindParam(1, $this->getNome(), PDO::PARAM_STR);
+                    @$sql->bindParam(1, $name, PDO::PARAM_STR);
                     break;
                 case 'Estoque':
+                    $estoque = $this->getEstoque();
+                    $estoque = $estoque . '%';
                     $sql = $this->conn->prepare("select * from produto where estoque like ?");
-                    @$sql->bindParam(1, $this->getEstoque(), PDO::PARAM_STR);
+                    @$sql->bindParam(1, $estoque, PDO::PARAM_STR);
                     break;
             }
 

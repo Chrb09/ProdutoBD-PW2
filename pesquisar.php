@@ -24,7 +24,8 @@
                     <select name="escolha" id="escolha-produto">
                         <option value="Id">Id</option>
                         <option value="Nome" selected>Nome</option>
-                        <option value="Estoque">Estoque</option>
+                        <option value="Estoque">Estoque
+                        </option>
                     </select>
                 </div>
                 <div class="linha">
@@ -32,7 +33,8 @@
                     <input name="txtpesquisar" id="txtpesquisa" type="text" maxlength="50"
                         placeholder="Nome do produto..." required autocomplete="off">
                 </div>
-                <div class="linha"><button name="enviar" type="submit" class="button-outline">Consultar</button>
+                <div class="linha"><button name="enviar" type="submit" class="button-outline"
+                        id="botao-enviar">Consultar</button>
                     <button name="limpar" type="reset" class="button-outline">Limpar</button>
                 </div>
             </form>
@@ -53,49 +55,55 @@
                         break;
                 }
                 $prod_bd = $pro->consultar($escolha);
-            }
-            ?>
-            <table>
-                <tr>
-                    <th>
-                        Id
-                    </th>
-                    <th>
-                        Nome
-                    </th>
-                    <th>
-                        Estoque
-                    </th>
-                </tr>
-                <?php
-                foreach ($prod_bd as $prod_mostrar) {
-                    ?>
+
+                ?>
+                <table>
                     <tr>
-                        <td>
-                            <b>
-                                <?php echo $prod_mostrar[0]; ?>
-                            </b>
-                        </td>
-                        <td>
-                            <?php echo $prod_mostrar[1]; ?>
-                        </td>
-                        <td>
-                            <?php echo $prod_mostrar[2]; ?>
-                        </td>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Nome
+                        </th>
+                        <th>
+                            Estoque
+                        </th>
                     </tr>
                     <?php
+                    foreach ($prod_bd as $prod_mostrar) {
+                        ?>
+                        <tr>
+                            <td>
+                                <b>
+                                    <?php echo $prod_mostrar[0]; ?>
+                                </b>
+                            </td>
+                            <td>
+                                <?php echo $prod_mostrar[1]; ?>
+                            </td>
+                            <td>
+                                <?php echo $prod_mostrar[2]; ?>
+                            </td>
+                        </tr>
+                        <?php
 
-                }
-                ?>
+                    }
+            }
+            ?>
             </table>
             <button class="button-cor" onclick="location.href='menu.php'">Voltar</button>
         </div>
     </main>
 </body>
-<script language="javascript">
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+<script>
     const escolha = document.getElementById("escolha-produto");
+    let valor = escolha.value;
     const p = document.getElementById("p-produto")
     const pesquisa = document.getElementById("txtpesquisa")
+    const enviar = document.getElementById("botao-enviar")
+
 
     function mudar() {
         let valor = escolha.value;
@@ -103,9 +111,19 @@
         pesquisa.placeholder = valor + " do produto...";
     }
 
-    escolha.addEventListener('change', function () {
+    escolha.addEventListener("change", () => {
         mudar()
     });
+
+    $('#escolha-produto').change(function (event) {
+        var selectedcategory = $(this).children("option:selected").val();
+        sessionStorage.setItem("itemName", selectedcategory);
+    });
+
+    $('select').find('option[value=' + sessionStorage.getItem('itemName') + ']').attr('selected', 'selected');
+
+    window.onload(mudar())
+
 </script>
 
 </html>
