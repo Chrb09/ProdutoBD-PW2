@@ -17,7 +17,7 @@
         ?>
     <main>
         <div class="content">
-            <h2>Pesquisa</h2>
+            <h2>Pesquisar</h2>
             <form name="formProduto" method="POST" action="">
                 <div class="linha">
                     <p>Pesquisar na coluna:</p>
