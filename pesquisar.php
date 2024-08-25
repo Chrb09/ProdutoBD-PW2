@@ -35,26 +35,26 @@
                 </div>
                 <div class="linha"><button name="enviar" type="submit" class="button-outline"
                         id="botao-enviar">Consultar</button>
-                    <button name="limpar" type="reset" class="button-outline">Limpar</button>
+                    <button name="limpar" id="limpar" type="button" class="button-outline">Limpar</button>
                 </div>
             </form>
             <?php
             extract($_POST, EXTR_OVERWRITE);
             if (isset($enviar)) {
                 include_once 'produto.php';
-                $pro = new Produto();
+                $prod = new Produto();
                 switch ($escolha) {
                     case 'Id':
-                        $pro->setId($txtpesquisar);
+                        $prod->setId($txtpesquisar);
                         break;
                     case 'Nome':
-                        $pro->setNome($txtpesquisar);
+                        $prod->setNome($txtpesquisar);
                         break;
                     case 'Estoque':
-                        $pro->setEstoque($txtpesquisar);
+                        $prod->setEstoque($txtpesquisar);
                         break;
                 }
-                $prod_bd = $pro->consultar($escolha);
+                $produto_bd = $prod->consultar($escolha);
 
                 ?>
                 <table>
@@ -70,7 +70,7 @@
                         </th>
                     </tr>
                     <?php
-                    foreach ($prod_bd as $prod_mostrar) {
+                    foreach ($produto_bd as $prod_mostrar) {
                         ?>
                         <tr>
                             <td>
@@ -99,9 +99,9 @@
     crossorigin="anonymous"></script>
 <script>
     const escolha = document.getElementById("escolha-produto");
-    let valor = escolha.value;
     const p = document.getElementById("p-produto")
     const pesquisa = document.getElementById("txtpesquisa")
+    const limpar = document.getElementById("limpar")
     const enviar = document.getElementById("botao-enviar")
 
 
@@ -114,6 +114,14 @@
     escolha.addEventListener("change", () => {
         mudar()
     });
+
+    limpar.addEventListener("click", () => {
+        escolha.value = "Nome";
+        var selectedcategory = $(this).children("option:selected").val();
+        sessionStorage.setItem("itemName", selectedcategory);
+        mudar()
+    });
+
 
     $('#escolha-produto').change(function (event) {
         var selectedcategory = $(this).children("option:selected").val();
