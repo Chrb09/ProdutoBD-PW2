@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="img/icon.png" />
+    <link rel="icon" href="../img/icon.png" />
     <link rel="stylesheet" href="css/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pesquisar</title>
@@ -109,6 +109,12 @@
         let valor = escolha.value;
         p.innerHTML = valor + ":";
         pesquisa.placeholder = valor + " do produto...";
+        if (valor == "Id") {
+            pesquisa.type = 'number'
+        }
+        else {
+            pesquisa.type = 'text'
+        }
     }
 
     escolha.addEventListener("change", () => {
