@@ -17,7 +17,7 @@
             <img src="img/listar.png" alt="" />
             <p href="listar.php">Listar</p>
         </button>
-        <button class="button-nav" onclick="location.href='alterar.php'">
+        <button class="button-nav" onclick="location.href='alterar1.php'">
             <img src="img/alterar.png" alt="" />
             <p href="alterar.php">Alterar</p>
         </button>

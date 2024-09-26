@@ -61,25 +61,12 @@ class Produto
     {
         try {
             $this->conn = new Conectar();
-            $sql = $this->conn->prepare("select * from produto where id = ?");
-            @$sql->bindParam(1, $this->getId(), PDO::PARAM_STR);
-            $sql->execute();
-            return $sql->fetchAll();
-            $this->conn = null;
-        } catch (PDOException $exc) {
-            echo "Erro ao alterar. " . $exc->getMessage();
-        }
-    }
-    function alterar2()
-    {
-        try {
-            $this->conn = new Conectar();
             $sql = $this->conn->prepare("update produto set nome = ?, estoque = ? where id = ?");
             @$sql->bindParam(1, $this->getNome(), PDO::PARAM_STR);
             @$sql->bindParam(2, $this->getEstoque(), PDO::PARAM_STR);
             @$sql->bindParam(3, $this->getId(), PDO::PARAM_STR);
             if ($sql->execute() == 1) {
-                return "Registro alterado com sucesso!";
+                return 1;
             }
             $this->conn = null;
         } catch (PDOException $exc) {
