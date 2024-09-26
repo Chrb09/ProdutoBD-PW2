@@ -32,7 +32,7 @@
                     <div class="linha">
                         <p>Id:</p>
                         <input name="txtid" class="inputdisabled" type="text" value="<?php echo $pro_mostrar[0]; ?>"
-                            maxlength="50" placeholder="ID do produto..." required autocomplete="off">
+                            maxlength="50" placeholder="ID do produto..." required autocomplete="off" tabindex="-1">
                     </div>
                     <div class="linha">
                         <p>Nome:</p>
