@@ -25,7 +25,7 @@
                 </div>
                 <div class="linha">
                     <button name="pesquisar" type="submit" class="button-outline">Pesquisar</button>
-                    <button name="limpar" itype="reset" class="button-outline">Limpar</button>
+                    <button name="limpar" type="reset" class="button-outline">Limpar</button>
                 </div>
             </form>
 

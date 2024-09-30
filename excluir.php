@@ -53,38 +53,43 @@
                     $pro = new Produto();
                     $pro->setId($txtid);
                     $prod_bd = $pro->consultar("Id");
-                    ?>
-                    <table id="table">
-                        <tr>
-                            <th>
-                                Id
-                            </th>
-                            <th>
-                                Nome
-                            </th>
-                            <th>
-                                Estoque
-                            </th>
-                        </tr>
-                        <?php
-                        foreach ($prod_bd as $prod_mostrar) {
-                            ?>
+
+                    if (count($prod_bd) === 0) {
+                        echo "<h2>Nenhum Registro com ID $txtid </h2>";
+                    } else {
+                        ?>
+                        <table id="table">
                             <tr>
-                                <td>
-                                    <b>
-                                        <?php echo $prod_mostrar[0]; ?>
-                                    </b>
-                                </td>
-                                <td>
-                                    <?php echo $prod_mostrar[1]; ?>
-                                </td>
-                                <td>
-                                    <?php echo $prod_mostrar[2]; ?>
-                                </td>
+                                <th>
+                                    Id
+                                </th>
+                                <th>
+                                    Nome
+                                </th>
+                                <th>
+                                    Estoque
+                                </th>
                             </tr>
                             <?php
+                            foreach ($prod_bd as $prod_mostrar) {
+                                ?>
+                                <tr>
+                                    <td>
+                                        <b>
+                                            <?php echo $prod_mostrar[0]; ?>
+                                        </b>
+                                    </td>
+                                    <td>
+                                        <?php echo $prod_mostrar[1]; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $prod_mostrar[2]; ?>
+                                    </td>
+                                </tr>
+                                <?php
 
-                        }
+                            }
+                    }
                 }
                 ?>
                 </table>
