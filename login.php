@@ -55,6 +55,9 @@
           <button class="button-cor" onclick="location.href='menu.php'">Entrar</button>
           <?php
         }
+        if ($existe == false) {
+          header("location:logininvalido.php");
+        }
       }
       ?>
     </div>
