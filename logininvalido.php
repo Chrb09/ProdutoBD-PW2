@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="img/icon.png" />
   <link rel="stylesheet" href="css/styles.css" />
-  <title>Manutenção</title>
+  <title>Login Invalido</title>
   <style>
     body {
       padding-top: 10rem;
@@ -25,7 +25,7 @@
     <div class="content">
       <h1>Login</h1>
       <h2>Acesso Inválido</h2>
-      <button class="button-cor" onclick="location.href='login.php'">Voltar</button>
+      <button class="button-cor" onclick="location.href='index.php'">Voltar</button>
     </div>
   </main>
 </body>

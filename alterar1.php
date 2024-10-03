@@ -20,8 +20,8 @@
             <form name="formProduto" id="formProduto" method="POST" action="alterar2.php">
                 <div class="linha">
                     <p>Id:</p>
-                    <input name="txtid" type="text" maxlength="50" placeholder="Id do produto..." required
-                        autocomplete="off">
+                    <input name="txtid" type="number" class="number" maxlength="10" placeholder="Id do produto..."
+                        required autocomplete="off">
                 </div>
                 <div class="linha">
                     <button name="pesquisar" type="submit" class="button-outline">Pesquisar</button>
@@ -33,5 +33,10 @@
         </div>
     </main>
 </body>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+<script>
+    $(".number").mask("0000000000");
+</script>
 
 </html>

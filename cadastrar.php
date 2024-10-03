@@ -26,7 +26,8 @@
                 </div>
                 <div class="linha">
                     <p>Estoque:</p>
-                    <input name="txtestoq" type="number" maxlength="11" placeholder="1" required autocomplete="off">
+                    <input name="txtestoq" type="number" class="number" min="1" max="2147483647" placeholder=" 1"
+                        required autocomplete="off">
                 </div>
                 <div class="linha"><button name="enviar" type="submit" class="button-outline">Cadastrar</button>
                     <button name="limpar" type="reset" class="button-outline">Limpar</button>
@@ -46,6 +47,10 @@
         </div>
     </main>
 </body>
-
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+<script>
+    $(".number").mask("0000000000");
+</script>
 
 </html>

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="../img/icon.png" />
+    <link rel="icon" href="img/icon.png" />
     <link rel="stylesheet" href="css/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pesquisar</title>
@@ -55,39 +55,42 @@
                         break;
                 }
                 $produto_bd = $prod->consultar($escolha);
-
-                ?>
-                <table>
-                    <tr>
-                        <th>
-                            Id
-                        </th>
-                        <th>
-                            Nome
-                        </th>
-                        <th>
-                            Estoque
-                        </th>
-                    </tr>
-                    <?php
-                    foreach ($produto_bd as $prod_mostrar) {
-                        ?>
+                if (count($produto_bd) === 0) {
+                    echo "<h2>Nenhum Registro com $escolha $txtpesquisar </h2>";
+                } else {
+                    ?>
+                    <table>
                         <tr>
-                            <td>
-                                <b>
-                                    <?php echo $prod_mostrar[0]; ?>
-                                </b>
-                            </td>
-                            <td>
-                                <?php echo $prod_mostrar[1]; ?>
-                            </td>
-                            <td>
-                                <?php echo $prod_mostrar[2]; ?>
-                            </td>
+                            <th>
+                                Id
+                            </th>
+                            <th>
+                                Nome
+                            </th>
+                            <th>
+                                Estoque
+                            </th>
                         </tr>
                         <?php
+                        foreach ($produto_bd as $prod_mostrar) {
+                            ?>
+                            <tr>
+                                <td>
+                                    <b>
+                                        <?php echo $prod_mostrar[0]; ?>
+                                    </b>
+                                </td>
+                                <td>
+                                    <?php echo $prod_mostrar[1]; ?>
+                                </td>
+                                <td>
+                                    <?php echo $prod_mostrar[2]; ?>
+                                </td>
+                            </tr>
+                            <?php
 
-                    }
+                        }
+                }
             }
             ?>
             </table>
@@ -107,14 +110,25 @@
 
     function mudar() {
         let valor = escolha.value;
+        if (valor == "Id") {
+            $("#txtpesquisa").replaceWith(
+                '<input name="txtpesquisar" id="txtpesquisa" type="number" min="1" max="2147483647"' +
+                'placeholder="ID do produto..." required autocomplete="off">'
+            )
+        }
+        else if (valor == "Estoque") {
+            $("#txtpesquisa").replaceWith(
+                '<input name="txtpesquisar" id="txtpesquisa" type="number" min="1" max="2147483647"' +
+                'placeholder="Estoque do produto..." required autocomplete="off">'
+            )
+        } else {
+            $("#txtpesquisa").replaceWith(
+                '<input name="txtpesquisar" id="txtpesquisa" type="text" maxlength="50"' +
+                'placeholder="Nome do produto..." required autocomplete="off">'
+            )
+        }
         p.innerHTML = valor + ":";
         pesquisa.placeholder = valor + " do produto...";
-        if (valor == "Id") {
-            pesquisa.type = 'number'
-        }
-        else {
-            pesquisa.type = 'text'
-        }
     }
 
     escolha.addEventListener("change", () => {
@@ -137,6 +151,7 @@
     $('select').find('option[value=' + sessionStorage.getItem('itemName') + ']').attr('selected', 'selected');
 
     window.onload(mudar())
+    $(".number").mask("0000000000");
 
 </script>
 

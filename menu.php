@@ -17,6 +17,7 @@
     <div class="content">
       <h3>Selecione a ação desejada</h3>
       <img src="img/manutencao.webp" alt="" class="img-index">
+      <button class="button-cor sair" onclick="location.href='index.php'">Sair</button>
     </div>
   </main>
 </body>
